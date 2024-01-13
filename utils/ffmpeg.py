@@ -52,7 +52,11 @@ def video2voice(videopath, voicepath, start_time='00:00:00', last_time='00:00:00
 
 def image2video(fps,imagepath,voicepath,videopath):
     if os.path.exists(voicepath):
+        cmd = 'ffmpeg -loglevel quiet -y -r '+str(fps)+' -i '+imagepath+' -vcodec libx264 -crf 21 '+os.path.split(voicepath)[0]+'/video_tmp.mp4'
+        print('cmd1 ',cmd)
         os.system('ffmpeg -loglevel quiet -y -r '+str(fps)+' -i '+imagepath+' -vcodec libx264 -crf 21 '+os.path.split(voicepath)[0]+'/video_tmp.mp4')
+        cmd2 = 'ffmpeg -loglevel quiet -y -r '+str(fps)+' -i '+imagepath+' -vcodec libx264 -crf 21 '+os.path.split(voicepath)[0]+'/video_tmp.mp4'
+        print('cmd2 ', cmd2)
         os.system('ffmpeg -loglevel quiet -y -i '+os.path.split(voicepath)[0]+'/video_tmp.mp4'+' -i "'+voicepath+'" -vcodec copy -acodec aac '+videopath)
     else:
         os.system('ffmpeg -loglevel quiet -y -r '+str(fps)+' -i '+imagepath+' -vcodec libx264 -crf 21 '+videopath)

@@ -124,4 +124,4 @@ for frame in tqdm(range(video_length)):
 print("start write to video...")
 ffmpeg.image2video(fps,os.path.join(opt.tmpdir, 'cvt','%06d.png'),os.path.join(opt.tmpdir, 'tmp.wav'),opt.out)
 cap.release()
-util.clean_tempfiles(opt.tmpdir,tmp_init=False)
+# util.clean_tempfiles(opt.tmpdir,tmp_init=False)

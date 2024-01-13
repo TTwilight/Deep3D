@@ -29,9 +29,18 @@ More examples:
 ### Dependencies
 This code depends on opencv-python available via pip install.
 ```bash
-pip install opencv-python
+$ conda create -n deep3d python=3.7.10
+$ conda activate deep3d
+$ pip install opencv-python
+$ pip install torch==1.7.1+cu110 torchvision==0.8.2+cu110 torchaudio==0.7.2 -f https://download.pytorch.org/whl/torch_stable.html
+$ pip install tqdm
 ```
-
+```bash
+# windows
+# ffmpeg 安装
+$ conda uninstall ffmpeg
+$ conda install -c conda-forge ffmpeg
+```
 ### Clone this repo
 ```bash
 git clone https://github.com/HypoX64/Deep3D
